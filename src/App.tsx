@@ -218,7 +218,7 @@ export default function App() {
               <div>
                 <h1 className="text-2xl md:text-3xl font-black tracking-tight">
                   <span className="bg-gradient-to-r from-foreground via-muted-foreground to-foreground bg-clip-text text-transparent">
-                    ÉPURE
+                    EPURE
                   </span>
                 </h1>  {' '}
                 <p className="text-xs text-muted-foreground font-medium mt-0.5">
@@ -226,9 +226,9 @@ export default function App() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-end w-full gap-3">
               <p className="text-xs text-muted-foreground">
-                © 2025 ÉPURE - Analyse de CV par Antonio Andriatsiaforitrarivo
+                © 2025 - par Antonio Andriatsiaforitrarivo
               </p>
             </div>
           </motion.header>

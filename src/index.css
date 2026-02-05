@@ -1,6 +1,7 @@
 
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -47,68 +48,52 @@
 
 :root {
   --radius: 0.75rem;
-  
-  /* Background - Dégradé premium avec profondeur */
+
   --background: linear-gradient(135deg, #0A0E27 0%, #16213E 50%, #1a3a52 100%);
   --foreground: #F0F4F8;
-  
-  /* Cards - Semi-transparent avec backdrop blur */
+
   --card: rgba(30, 41, 59, 0.7);
   --card-foreground: #F0F4F8;
-  
-  /* Popover */
+
   --popover: rgba(30, 41, 59, 0.95);
   --popover-foreground: #F0F4F8;
   
-  /* Primary - Vert émeraude vibrant (confiance, succès) */
+
   --primary: #10B981;
   --primary-foreground: #FFFFFF;
   
-  /* Primary Gradient pour les accents */
   --primary-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
   
-  /* Secondary - Cyan / Turquoise (complémentaire) */
   --secondary: #06B6D4;
   --secondary-foreground: #FFFFFF;
   
-  /* Secondary Gradient */
   --secondary-gradient: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
   
-  /* Muted - Gris neutre */
   --muted: rgba(226, 232, 240, 0.12);
   --muted-foreground: #94A3B8;
   
-  /* Accent - Amber/Or (appels à l'action) */
   --accent: #F59E0B;
   --accent-foreground: #1F2937;
   
-  /* Accent Gradient */
   --accent-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   
-  /* Destructive - Rouge moderne */
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
-  /* Destructive Gradient */
   --destructive-gradient: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
   
-  /* Border - Subtle avec alpha */
   --border: rgba(255, 255, 255, 0.12);
   
-  /* Input */
   --input: rgba(255, 255, 255, 0.08);
   
-  /* Ring - Focus visible */
   --ring: #10B981;
   
-  /* Chart colors - Palette cohérente */
   --chart-1: #10B981;
   --chart-2: #06B6D4;
   --chart-3: #F59E0B;
   --chart-4: #8B5CF6;
   --chart-5: #EC4899;
   
-  /* Sidebar */
   --sidebar: rgba(30, 41, 59, 0.8);
   --sidebar-foreground: #F0F4F8;
   --sidebar-primary: #10B981;
@@ -118,7 +103,6 @@
   --sidebar-border: rgba(255, 255, 255, 0.12);
   --sidebar-ring: #10B981;
   
-  /* Semantic colors */
   --success: #10B981;
   --warning: #F59E0B;
   --error: #EF4444;
@@ -126,55 +110,42 @@
 }
 
 .dark {
-  /* Background - Mode sombre ultra raffiné */
   --background: #0F172A;
   --foreground: #F1F5F9;
   
-  /* Card - Subtle glass morphism */
   --card: rgba(15, 23, 42, 0.8);
   --card-foreground: #F1F5F9;
   
-  /* Popover */
   --popover: rgba(15, 23, 42, 0.95);
   --popover-foreground: #F1F5F9;
   
-  /* Primary - Vert émeraude (même en dark) */
   --primary: #10B981;
   --primary-foreground: #FFFFFF;
   
-  /* Secondary - Cyan lumineux */
   --secondary: #06B6D4;
   --secondary-foreground: #FFFFFF;
   
-  /* Muted */
   --muted: rgba(226, 232, 240, 0.08);
   --muted-foreground: #94A3B8;
   
-  /* Accent - Amber */
   --accent: #FBBF24;
   --accent-foreground: #1F2937;
   
-  /* Destructive */
   --destructive: #F87171;
   --destructive-foreground: #FFFFFF;
   
-  /* Border - Subtle */
   --border: rgba(226, 232, 240, 0.08);
   
-  /* Input */
   --input: rgba(226, 232, 240, 0.05);
   
-  /* Ring */
   --ring: #10B981;
   
-  /* Chart colors */
   --chart-1: #10B981;
   --chart-2: #06B6D4;
   --chart-3: #FBBF24;
   --chart-4: #A78BFA;
   --chart-5: #F472B6;
   
-  /* Sidebar */
   --sidebar: rgba(30, 41, 59, 0.6);
   --sidebar-foreground: #F1F5F9;
   --sidebar-primary: #10B981;
@@ -184,14 +155,12 @@
   --sidebar-border: rgba(226, 232, 240, 0.08);
   --sidebar-ring: #10B981;
   
-  /* Semantic colors */
   --success: #10B981;
   --warning: #FBBF24;
   --error: #F87171;
   --info: #06B6D4;
 }
 
-/* Animations de couleurs optionnelles */
 @keyframes glow-pulse {
   0%, 100% {
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
@@ -213,7 +182,6 @@
   }
 }
 
-/* Utility classes pour les gradients */
 .bg-gradient-primary {
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
@@ -244,7 +212,6 @@
   background-clip: text;
 }
 
-/* Glow effects */
 .glow-primary {
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
 }
@@ -257,18 +224,15 @@
   box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
 }
 
-/* Dark mode glow */
 .dark .glow-accent {
   box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
 }
 
-/* Focus visible - Accessibility */
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
-/* Selection */
 ::selection {
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -285,32 +249,31 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
   }
   
 }
 
 @layer utilities {
-  /* Masquer le fond et styliser la barre */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 5px;               /* Largeur très fine */
-    height: 5px;              /* Hauteur pour le scroll horizontal */
+    width: 5px;
+    height: 5px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;  /* ENLEVER LE FOND */
+    background: transparent;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #D1D5DB;      /* Couleur de la barre (Gris clair) */
-    border-radius: 100px;     /* Forme pilule/arrondie */
+    background: #D1D5DB;
+    border-radius: 100px;
     transition: background 0.3s ease;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #9CA3AF;      /* Couleur au survol */
+    background: #9CA3AF;
   }
 
-  /* Version Firefox */
   .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #D1D5DB transparent;
