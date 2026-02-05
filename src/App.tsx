@@ -804,17 +804,6 @@ export default function App() {
           </div>
         </div>
       </div>
-    {/* Footer avec copyright */}
-      <motion.footer 
-        className="flex-shrink-0 border-t py-3 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <p className="text-xs text-muted-foreground">
-          © 2025 ÉPURE - Analyse de CV par Antonio Andriatsiaforitrarivo. Tous droits réservés.
-        </p>
-      </motion.footer>
       
       {/* Alert Modal */}
       <Dialog open={alertModal.isOpen} onOpenChange={(open) => setAlertModal(prev => ({ ...prev, isOpen: open }))}>
