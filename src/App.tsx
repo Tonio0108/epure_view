@@ -14,6 +14,7 @@ import {
   Zap,
   X,
   ArrowRight,
+  ArrowUp,
   Target,
   Lightbulb,
 } from "lucide-react";
@@ -84,6 +85,14 @@ export default function App() {
         missingSkills: JSON.parse(data.missingSkills),
         suggestions: JSON.parse(data.suggestions)
       });
+      
+      // Scroll immédiat vers les résultats (mobile only)
+      if (window.innerWidth < 1024) {
+        const resultsSection = document.getElementById('results-section');
+        if (resultsSection) {
+          resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Une erreur est survenue lors de l'analyse";
       showAlert("Erreur", errorMessage, "error");
@@ -112,7 +121,22 @@ export default function App() {
   );
 
   return (
-    <div className="h-screen bg-gradient-to-br from-background to-card text-foreground relative overflow-hidden flex flex-col transition-colors duration-300 dark">
+    <div className="h-screen bg-gradient-to-br from-background to-card text-foreground relative lg:overflow-hidden overflow-auto flex flex-col transition-colors duration-300 dark">
+      
+      <div className="lg:hidden fixed bottom-4 rounded-full right-4 z-50">
+        <Button
+          size="sm"
+          onClick={() => {
+            const header = document.getElementById('header-section');
+            if (header) {
+              header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+          className="shadow-lg rounded-full bg-primary/90 hover:bg-primary text-primary-foreground"
+        >
+          <ArrowUp size={16} />
+        </Button>
+      </div>
       
       {/* Enhanced background effects - Dark mode optimized */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -174,6 +198,7 @@ export default function App() {
           
           {/* Header compact */}
           <motion.header 
+            id="header-section"
             className="flex-shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b pb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,13 +227,17 @@ export default function App() {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              <p className="text-xs text-muted-foreground">
+                © 2025 ÉPURE - Analyse de CV par Antonio Andriatsiaforitrarivo
+              </p>
             </div>
           </motion.header>
 
-          {/* Main content - Grid avec overflow */}
-          <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-4 min-h-0">
+          {/* Main content - Full screen sections on mobile */}
+          <div className="flex-1 lg:grid lg:grid-cols-12 lg:gap-4 lg:min-h-0">
+            {/* Configuration Section - Full Screen on Mobile, Half on Desktop */}
             <motion.div 
-              className="lg:col-span-5 flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar"
+              className="min-h-screen lg:min-h-0 flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar lg:col-span-5"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -386,8 +415,19 @@ export default function App() {
               </Card>
             </motion.div>
 
-            {/* Colonne Droite : Résultats avec scroll */}
-            <div className="lg:col-span-7 flex flex-col min-h-0">
+            {/* Results Section - Full Screen on Mobile, Right on Desktop */}
+            <div id="results-section" className="min-h-screen lg:min-h-0 flex flex-col overflow-y-auto lg:col-span-7">
+              {/* Bouton scroll haut - Mobile only */}
+              <div className="lg:hidden fixed bottom-4 right-4 z-50">
+                <Button
+                  size="sm"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="shadow-lg bg-primary/90 hover:bg-primary text-primary-foreground"
+                >
+                  <ArrowUp size={16} />
+                </Button>
+              </div>
+              
               <AnimatePresence mode="wait">
                 {loading ? (
                   <motion.div 
