@@ -25,7 +25,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { analyzeResume } from "@/lib/api";
-
+import { Analytics } from "@vercel/analytics/next"
 interface AnalysisResult {
   score: number;
   missingSkills: string[];
@@ -825,6 +825,7 @@ export default function App() {
           </DialogHeader>
         </DialogContent>
       </Dialog>
+      <Analytics />
     </div>
   );
 }
